@@ -4,7 +4,7 @@ title:  "c9.io과 GitHub Pages로 내 블로그 장만하기"
 date:   2016-10-16 10:48:11
 categories: jekyll github
 tags: featured
-image: assets/article_images/2016-10-16-c9.io과-GitHub-Pages로-내-블로그-장만하기/title.png
+image: /assets/article_images/2016-10-16-c9.io과-GitHub-Pages로-내-블로그-장만하기/title.png
 ---
 
 # c9.io과 GitHub Pages로 내 블로그 장만하기
