@@ -1,393 +1,227 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<style>
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote {
-    margin: 0;
-    padding: 0;
-}
-body {
-    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-    color: #737373;
-    background-color: white;
-    margin: 10px 13px 10px 13px;
-}
-table {
-	margin: 10px 0 15px 0;
-	border-collapse: collapse;
-}
-td,th {	
-	border: 1px solid #ddd;
-	padding: 3px 10px;
-}
-th {
-	padding: 5px 10px;	
-}
+# c9.io과 GitHub Pages로 내 블로그 장만하기
 
-a {
-    color: #0069d6;
-}
-a:hover {
-    color: #0050a3;
-    text-decoration: none;
-}
-a img {
-    border: none;
-}
-p {
-    margin-bottom: 9px;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #404040;
-    line-height: 36px;
-}
-h1 {
-    margin-bottom: 18px;
-    font-size: 30px;
-}
-h2 {
-    font-size: 24px;
-}
-h3 {
-    font-size: 18px;
-}
-h4 {
-    font-size: 16px;
-}
-h5 {
-    font-size: 14px;
-}
-h6 {
-    font-size: 13px;
-}
-hr {
-    margin: 0 0 19px;
-    border: 0;
-    border-bottom: 1px solid #ccc;
-}
-blockquote {
-    padding: 13px 13px 21px 15px;
-    margin-bottom: 18px;
-    font-family:georgia,serif;
-    font-style: italic;
-}
-blockquote:before {
-    content:"\201C";
-    font-size:40px;
-    margin-left:-10px;
-    font-family:georgia,serif;
-    color:#eee;
-}
-blockquote p {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 18px;
-    margin-bottom: 0;
-    font-style: italic;
-}
-code, pre {
-    font-family: Monaco, Andale Mono, Courier New, monospace;
-}
-code {
-    background-color: #fee9cc;
-    color: rgba(0, 0, 0, 0.75);
-    padding: 1px 3px;
-    font-size: 12px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-pre {
-    display: block;
-    padding: 14px;
-    margin: 0 0 18px;
-    line-height: 16px;
-    font-size: 11px;
-    border: 1px solid #d9d9d9;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-pre code {
-    background-color: #fff;
-    color:#737373;
-    font-size: 11px;
-    padding: 0;
-}
-sup {
-    font-size: 0.83em;
-    vertical-align: super;
-    line-height: 0;
-}
-* {
-	-webkit-print-color-adjust: exact;
-}
-@media screen and (min-width: 914px) {
-    body {
-        width: 854px;
-        margin:10px auto;
-    }
-}
-@media print {
-	body,code,pre code,h1,h2,h3,h4,h5,h6 {
-		color: black;
-	}
-	table, pre {
-		page-break-inside: avoid;
-	}
-}
-</style>
-<title>c9.io과 GitHub Pages로 내 블로그 장만하기</title>
 
-</head>
-<body>
-<h1>c9.io과 GitHub Pages로 내 블로그 장만하기</h1>
+작성한 글을 올리게 된 이유와 여러 비교는 나중에 하도록 하고, 이 포스팅에서는 GitHub pages를 이용한 블로그 장만기를 적어볼까 합니다.
 
-<p>작성한 글을 올리게 된 이유와 여러 비교는 나중에 하도록 하고, 이 포스팅에서는 GitHub pages를 이용한 블로그 장만기를 적어볼까 합니다.</p>
+GitHub을 이용한 블로그 개발은 이전부터 계속 되어왔는데요, GitHub pages를 통해 훨씬 빠르고 쉽게 Jekyll 기반의 블로그를 생성할 수 있습니다.
 
-<p>GitHub을 이용한 블로그 개발은 이전부터 계속 되어왔는데요, GitHub pages를 통해 훨씬 빠르고 쉽게 Jekyll 기반의 블로그를 생성할 수 있습니다.</p>
+### 알고 시작해야 하는 것들
 
-<h3>알고 시작해야 하는 것들</h3>
+HTML에 대한 기본 문법
 
-<p>HTML에 대한 기본 문법</p>
+Git/GitHub 사용법
 
-<p>Git/GitHub 사용법</p>
+### 미리 알아두면 좋은 것들
+jekyll에 대한 이해(https://jekyllrb-ko.github.io/)
 
-<h3>미리 알아두면 좋은 것들</h3>
+c9.io 사용법
 
-<p>jekyll에 대한 이해(https://jekyllrb-ko.github.io/)</p>
-
-<p>c9.io 사용법</p>
-
-<pre><code>c9.io(https://c9.io)는 무료로 웹 개발 환경을 제공해주는 웹 IDE입니다.
+```
+c9.io(https://c9.io)는 무료로 웹 개발 환경을 제공해주는 웹 IDE입니다.
 이 포스팅에서는 로컬에 포스팅 환경을 구축하지 않고 웹 IDE를 통해 글을 업로드 할 수 있는 환경을 위해 선택했습니다. (심지어 빠르게 구축할 수 있다는 장점도 있습니다.)
 구름(http://goorm.io)도 비슷한 기능을 제공해줍니다.
-</code></pre>
+```
+![c9.io](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.29.53.png)
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.29.53.png" alt="c9.io" /></p>
-
-<h3>할 일 요약</h3>
-
-<ol>
-<li>https://c9.io IDE에 무료 블로그 개발 환경을 만듭니다.</li>
-<li>GitHub Pages 생성을 위해 GitHub 저장소를 만듭니다.</li>
-<li>c9.io Workspace에 적당한 블로그 템플릿을 복사하고 이름을 넣어줍니다.</li>
-<li>c9.io에 만들어둔 블로그를 확인하고, 콘솔창에서 GitHub 저장소로 push합니다.</li>
-<li>완성!</li>
-</ol>
+### 할 일 요약
+1. https://c9.io IDE에 무료 블로그 개발 환경을 만듭니다.
+2. GitHub Pages 생성을 위해 GitHub 저장소를 만듭니다.
+3. c9.io Workspace에 적당한 블로그 템플릿을 복사하고 이름을 넣어줍니다.
+4. c9.io에 만들어둔 블로그를 확인하고, 콘솔창에서 GitHub 저장소로 push합니다.
+5. 완성!
 
 
-<h2>가입하기</h2>
+## 가입하기
+이번 포스팅에서 필요한 계정은 2가지입니다.
 
-<p>이번 포스팅에서 필요한 계정은 2가지입니다.</p>
-
-<ol>
-<li>로컬 환경에서 GitHub 저장소에 push 하기 위한 <code>c9.io 계정</code></li>
-<li>GitHub 저장소를 생성하기 위한 <code>GitHub 계정</code></li>
-</ol>
+1. 로컬 환경에서 GitHub 저장소에 push 하기 위한 `c9.io 계정`
+2. GitHub 저장소를 생성하기 위한 `GitHub 계정`
 
 
-<pre><code>참고
+```
+참고
 이전에는 c9.io에 결제정보 없이도 가입이 가능했지만, 요즘에는 가입을 위해 카드정보를 받고있더라구요.
 가입전에 카드를 준비해두시면 의자에서 일어나는 수고를 줄일 수 있습니다.(AWS 가입절차를 생각하시면 됩니다.)
-</code></pre>
+```
 
-<h2>c9.io에 내 블로그 '먼저' 만들기</h2>
+## c9.io에 내 블로그 '먼저' 만들기
 
-<p>먼저 블로그를 생성해야 웹에도 올릴 수 있으니 블로그를 먼저 생성해볼까요?
-c9.io에 대한 설명은 조금 줄이고, 필요한 내용 위주로 설명하겠습니다.</p>
+먼저 블로그를 생성해야 웹에도 올릴 수 있으니 블로그를 먼저 생성해볼까요?
+c9.io에 대한 설명은 조금 줄이고, 필요한 내용 위주로 설명하겠습니다.
 
-<h4>Workspace 생성</h4>
+#### Workspace 생성
 
-<p>c9.io(https://c9.io)에 접속 후 Dashboard에 블로그용 Workspace를 생성합니다. (어차피 GitHub에서는 공개로 설정할테니, 굳이 private workspace를 생성하실 필요는 없습니다.)</p>
+c9.io(https://c9.io)에 접속 후 Dashboard에 블로그용 Workspace를 생성합니다. (어차피 GitHub에서는 공개로 설정할테니, 굳이 private workspace를 생성하실 필요는 없습니다.)
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.50.45.png" alt="c9 dashboard" />
-템플릿은 HTML5로 선택합니다. jekyll 때문에 루비를 선택해봤더니 레일즈 보일러플레이트가 기본 설정되어있어서 설정을 지우는데 시간이 더 걸리더라구요. jekyll에 필요한 파일은 콘솔에서 설치하도록 하겠습니다.</p>
+![c9 dashboard](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.50.45.png)
+템플릿은 HTML5로 선택합니다. jekyll 때문에 루비를 선택해봤더니 레일즈 보일러플레이트가 기본 설정되어있어서 설정을 지우는데 시간이 더 걸리더라구요. jekyll에 필요한 파일은 콘솔에서 설치하도록 하겠습니다.
 
-<p>Workspace가 생성되면 휑한 화면을 볼 수 있는데요, 여기에 원하는 jekyll Theme를 복사하면 됩니다. 테마는 http://jekyllthemes.org/ 에서 마음에 드는걸 잡아오시면 됩니다. 물론 테마마다 사용자 설정이나 DISQUS(포스팅 하단 댓글 영역을 생성해주는 서비스) 기본 탑재여부등이 다릅니다. 없는 기능은 새로 구현해야하는 경우도 있으니 각 기능을 데모 페이지에서 확인해보시고 선택하세요.</p>
+Workspace가 생성되면 휑한 화면을 볼 수 있는데요, 여기에 원하는 jekyll Theme를 복사하면 됩니다. 테마는 http://jekyllthemes.org/ 에서 마음에 드는걸 잡아오시면 됩니다. 물론 테마마다 사용자 설정이나 DISQUS(포스팅 하단 댓글 영역을 생성해주는 서비스) 기본 탑재여부등이 다릅니다. 없는 기능은 새로 구현해야하는 경우도 있으니 각 기능을 데모 페이지에서 확인해보시고 선택하세요.
 
-<p>저는 지금 블로그에서 사용중인 미디엄 스타일의 테마를 받아보겠습니다.(http://jekyllthemes.org/themes/mediator/)</p>
+저는 지금 블로그에서 사용중인 미디엄 스타일의 테마를 받아보겠습니다.(http://jekyllthemes.org/themes/mediator/)
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.20.26.png" alt="c9 file" />
-이후에는 받은 파일의 압축을 그대로 c9 IDE 파일 트리에 Drag &amp; Drop 하면 필요한 파일은 전부 받은겁니다.</p>
+![c9 file](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.20.26.png)
+이후에는 받은 파일의 압축을 그대로 c9 IDE 파일 트리에 Drag & Drop 하면 필요한 파일은 전부 받은겁니다.
 
-<pre><code>Readme.md 파일은 꼭 덮어씌우지 않아도 상관없습니다.
-</code></pre>
+```
+Readme.md 파일은 꼭 덮어씌우지 않아도 상관없습니다.
+```
 
-<h4>jekyll 세팅</h4>
+####jekyll 세팅
+이제 jekyll를 세팅해보겠습니다. 지금 상태는 마치 컴파일하지 않은 소스와 같아서, 일반적인 웹서버에서는 정상적으로 노출되지 않습니다.
+때문에 jekyll 명령어를 통해 필요한 정보들을 하나의 static page로 만들어야합니다.
 
-<p>이제 jekyll를 세팅해보겠습니다. 지금 상태는 마치 컴파일하지 않은 소스와 같아서, 일반적인 웹서버에서는 정상적으로 노출되지 않습니다.
-때문에 jekyll 명령어를 통해 필요한 정보들을 하나의 static page로 만들어야합니다.</p>
-
-<pre><code>다음과 같은 두 문장을
+```
+다음과 같은 두 문장을
 데이터   /  (이름정보 : 김대엽, 나이정보 : 27)
 레이아웃  /  "[이름정보],[나이정보]의 블로그입니다."
 
 하나의 static 문장으로
-=&gt; "김대엽(27)의 블로그입니다."
+=> "김대엽(27)의 블로그입니다."
 
 만드는 과정이라고 생각하면 편리할 것 같네요.
-</code></pre>
+```
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.07.18.png" alt="c9 bash" />
-이 작업은 c9 IDE 하단의 bash shell을 통해 진행하게 되는데요, workspace를 생성할 때 기본적인 세팅은 완료되어있는 상태이기 때문에 몇가지 명령어만 입력하면 작업이 완료됩니다.</p>
 
-<p>아래와 같은 탭에</p>
+![c9 bash](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.07.18.png)
+이 작업은 c9 IDE 하단의 bash shell을 통해 진행하게 되는데요, workspace를 생성할 때 기본적인 세팅은 완료되어있는 상태이기 때문에 몇가지 명령어만 입력하면 작업이 완료됩니다.
 
-<blockquote><p>gem install jekyll bundler</p></blockquote>
+아래와 같은 탭에
+>gem install jekyll bundler
 
-<p>를 입력합니다. jekyll에 필요한 설치가 끝나면 다시</p>
+를 입력합니다. jekyll에 필요한 설치가 끝나면 다시
+>bundle install
 
-<blockquote><p>bundle install</p></blockquote>
+를 입력합니다. 이 명령어를 통해 `mediator` 템플릿에서 필요한 파일을 받을 수 있습니다. 해당 명령어는 테마마다 다를 수 있으니 해당 테마의 Readme.md 파일을 꼭 확인해보시기 바랍니다.
 
-<p>를 입력합니다. 이 명령어를 통해 <code>mediator</code> 템플릿에서 필요한 파일을 받을 수 있습니다. 해당 명령어는 테마마다 다를 수 있으니 해당 테마의 Readme.md 파일을 꼭 확인해보시기 바랍니다.</p>
+여기까지 완료되면, 새로운 블로그의 static page를 만들어 낼 준비가 완료되었습니다.
 
-<p>여기까지 완료되면, 새로운 블로그의 static page를 만들어 낼 준비가 완료되었습니다.</p>
+#### 파일구조
+잠시 파일구조를 보고 넘어가려고 하는데요, jekyll기반의 블로그에 포스팅을 위한 가장 기초적인 내용입니다.
+몇가지 중요한 파일과 폴더에 대한 설명을 붙이자면
 
-<h4>파일구조</h4>
+`_config.yml` : 블로그의 모든 설정을 담당합니다. 잘 만들어진 템플릿의 경우, 이 파일의 내용을 수정하는 것으로 블로그의 모든 정보를 변경할 수 도 있습니다.
 
-<p>잠시 파일구조를 보고 넘어가려고 하는데요, jekyll기반의 블로그에 포스팅을 위한 가장 기초적인 내용입니다.
-몇가지 중요한 파일과 폴더에 대한 설명을 붙이자면</p>
+`_posts` 폴더 : 포스팅이 저장되는 공간입니다. 이 폴더에 글을 넣으면 자동으로 포스팅을 인식합니다. 각 포스팅에는 지켜야하는 제목 양식이 있는데요, 기존의 포스팅 제목을 확인해보시면 쉽게 따라하실 수 있습니다.
 
-<p><code>_config.yml</code> : 블로그의 모든 설정을 담당합니다. 잘 만들어진 템플릿의 경우, 이 파일의 내용을 수정하는 것으로 블로그의 모든 정보를 변경할 수 도 있습니다.</p>
+`_site` 폴더 : jekyll을 통해 만들어지는 static 결과물이 출력되는 폴더입니다.(기본 설정) 처음 템플릿을 받으면 해당 폴더가 없는 경우가 있는데요, 명령어를 통해 static page를 만들어 내면 생성되게 됩니다. 중요한 사실은, `_site` 폴더의 내용물을 수정하는건 의미가 없다는겁니다. 단순히 static page 결과물이 저장되는 폴더이기 때문에, 다음 페이지 생성때 덮어 씌워지거든요. 페이지 내용을 수정할 곳이 있다면, 설정파일이나 다른 폴더의 레이아웃을 수정해야합니다.
 
-<p><code>_posts</code> 폴더 : 포스팅이 저장되는 공간입니다. 이 폴더에 글을 넣으면 자동으로 포스팅을 인식합니다. 각 포스팅에는 지켜야하는 제목 양식이 있는데요, 기존의 포스팅 제목을 확인해보시면 쉽게 따라하실 수 있습니다.</p>
+```
+https://jekyllrb.com/docs/structure/에서 더 자세한 내용을 보실 수 있습니다.
+```
 
-<p><code>_site</code> 폴더 : jekyll을 통해 만들어지는 static 결과물이 출력되는 폴더입니다.(기본 설정) 처음 템플릿을 받으면 해당 폴더가 없는 경우가 있는데요, 명령어를 통해 static page를 만들어 내면 생성되게 됩니다. 중요한 사실은, <code>_site</code> 폴더의 내용물을 수정하는건 의미가 없다는겁니다. 단순히 static page 결과물이 저장되는 폴더이기 때문에, 다음 페이지 생성때 덮어 씌워지거든요. 페이지 내용을 수정할 곳이 있다면, 설정파일이나 다른 폴더의 레이아웃을 수정해야합니다.</p>
 
-<pre><code>https://jekyllrb.com/docs/structure/에서 더 자세한 내용을 보실 수 있습니다.
-</code></pre>
+#### 블로그 내용 수정
+파일구조에서 이야기 했듯, 좋은 템플릿은 대다수의 내용을 `_config.yml` 파일에 저장해두고 사용합니다.
+파일을 열어보시면, 친절한 #주석과 함께 넣어야 할 정보를 확인하실 수 있습니다. 해당 내용을 입력해 블로그의 내용을 채우면 됩니다.
 
-<h4>블로그 내용 수정</h4>
+#### Static Page 생성 & 서버 구동
+블로그 내용을 수정하다보면, 맞게 수정이 된 것인지 확인하고 싶어집니다. 이제 새단장한 블로그를 만나볼까요?
 
-<p>파일구조에서 이야기 했듯, 좋은 템플릿은 대다수의 내용을 <code>_config.yml</code> 파일에 저장해두고 사용합니다.
-파일을 열어보시면, 친절한 #주석과 함께 넣어야 할 정보를 확인하실 수 있습니다. 해당 내용을 입력해 블로그의 내용을 채우면 됩니다.</p>
+c9 IDE를 사용하고 있기 때문에, `_config.yml`파일을 수정할 필요가 있습니다. jekyll 튜토리얼을 참고해서 작업하시다보면, jekyll에서 기본실행되는 웹서버의 기본 포트가 4000번임을 알 수 있는데요, c9(무료계정)에서는 정해진 포트 이외에는 접근을 허용하지 않아서, 강제로 포트를 변경해주어야합니다.
 
-<h4>Static Page 생성 &amp; 서버 구동</h4>
+간단하게 말해서 `_config.yml`파일에 
 
-<p>블로그 내용을 수정하다보면, 맞게 수정이 된 것인지 확인하고 싶어집니다. 이제 새단장한 블로그를 만나볼까요?</p>
+>port: 8080
 
-<p>c9 IDE를 사용하고 있기 때문에, <code>_config.yml</code>파일을 수정할 필요가 있습니다. jekyll 튜토리얼을 참고해서 작업하시다보면, jekyll에서 기본실행되는 웹서버의 기본 포트가 4000번임을 알 수 있는데요, c9(무료계정)에서는 정해진 포트 이외에는 접근을 허용하지 않아서, 강제로 포트를 변경해주어야합니다.</p>
+을 추가해주면 됩니다. 
 
-<p>간단하게 말해서 <code>_config.yml</code>파일에</p>
+![port setting](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.36.45.png)
+저는 제 템플릿에 있는 #Build settings 하단에 추가했습니다. 참고로 포트를 수정해도 GitHub Pages에 업로드하는데는 차이가 없습니다.
 
-<blockquote><p>port: 8080</p></blockquote>
+그리고 이제 서버를 실행하면 되는데요,
 
-<p>을 추가해주면 됩니다.</p>
+>bundle exec jekyll serve
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.36.45.png" alt="port setting" />
-저는 제 템플릿에 있는 #Build settings 하단에 추가했습니다. 참고로 포트를 수정해도 GitHub Pages에 업로드하는데는 차이가 없습니다.</p>
+를 입력하면, `_site` 폴더가 생성되면서 서버가 실행됩니다.
+![_site](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.39.45.png)
 
-<p>그리고 이제 서버를 실행하면 되는데요,</p>
 
-<blockquote><p>bundle exec jekyll serve</p></blockquote>
+서버가 실행되면 콘솔 옆에 주소가 하나 뜨는데요, 이 주소를 통해 (일반적으로 `워크스페이스이름-유저명-c9users.io`) c9.io 서버에 생성된 블로그를 볼 수 있습니다.
+![server start](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.39.29.png)
 
-<p>를 입력하면, <code>_site</code> 폴더가 생성되면서 서버가 실행됩니다.
-<img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.39.45.png" alt="_site" /></p>
+서버를 재시작하는법은 ctrl-c를 누르고, 다시 위 명령어 
+>bundle exec jekyll serve
 
-<p>서버가 실행되면 콘솔 옆에 주소가 하나 뜨는데요, 이 주소를 통해 (일반적으로 <code>워크스페이스이름-유저명-c9users.io</code>) c9.io 서버에 생성된 블로그를 볼 수 있습니다.
-<img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.39.29.png" alt="server start" /></p>
+를 입력하면 됩니다. 기본적으로 파일이 변경될때마다 `_site`폴더의 내용을 재생성해주긴 하지만, 변경이 되지 않는 경우 재시작이 가장 빠른 방법이더라구요.
 
-<p>서버를 재시작하는법은 ctrl-c를 누르고, 다시 위 명령어</p>
+## GitHub에 둥지틀기
 
-<blockquote><p>bundle exec jekyll serve</p></blockquote>
-
-<p>를 입력하면 됩니다. 기본적으로 파일이 변경될때마다 <code>_site</code>폴더의 내용을 재생성해주긴 하지만, 변경이 되지 않는 경우 재시작이 가장 빠른 방법이더라구요.</p>
-
-<h2>GitHub에 둥지틀기</h2>
-
-<p>사실 c9.io에 블로그를 올리면 제공되는 개인 주소를 통해 블로그를 운영할 수 있습니다.
+사실 c9.io에 블로그를 올리면 제공되는 개인 주소를 통해 블로그를 운영할 수 있습니다.
 그러나 c9.io 무료 계정으로는 웹 IDE를 켜 둔 상태에서만 서버가 켜져있기 때문에, (컴퓨터를 꺼버리면 외부에서 접근할 수 없는것과 같습니다.)
-언제든 접속이 되는 환경을 구축하기 위해선 해당 소스를 GitHub으로 옮겨주는것이죠.</p>
+언제든 접속이 되는 환경을 구축하기 위해선 해당 소스를 GitHub으로 옮겨주는것이죠.
 
-<h4>GitHub 저장소 생성</h4>
+#### GitHub 저장소 생성
+GitHub에 로그인 후 새로운 저장소를 생성합니다.
 
-<p>GitHub에 로그인 후 새로운 저장소를 생성합니다.</p>
-
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.47.14.png" alt="github repo" />
+![github repo](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.47.14.png)
 저장소를 생성할 때 GitHub Pages를 위한 규칙이 있는데요,
-저장소 이름을 <code>GitHub아이디.github.io</code>로 생성해야합니다.</p>
+저장소 이름을 `GitHub아이디.github.io`로 생성해야합니다.
 
-<pre><code>아이디가 ongoz 일 경우,
+```
+아이디가 ongoz 일 경우,
 ongoz.github.io 입니다.
-</code></pre>
+```
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.49.49.png" alt="github need commit" />
+
+![github need commit](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.49.49.png)
 저장소를 처음 생성하면, 저장소에 내용이 없기 때문에 첫 commit을 위한 설명이 뜨게 됩니다.
-이 중에서 상단의 해당 저장소 주소를 저장해두세요. Https나 SSH 어느쪽이든 상관없습니다.</p>
+이 중에서 상단의 해당 저장소 주소를 저장해두세요. Https나 SSH 어느쪽이든 상관없습니다. 
 
-<pre><code>이 예시에서 사용되는 GitHub ID는 `daeyeobi`입니다.
+```
+이 예시에서 사용되는 GitHub ID는 `daeyeobi`입니다.
 (https://github.com/daeyeobi/daeyeobi.github.io.git)
-</code></pre>
+```
 
-<h4>파일 커밋</h4>
+#### 파일 커밋
 
-<p>저장소의 주소를 알았으니 이제 파일을 올려야겠죠. 다시 c9 IDE의 bash shell에서 명령어를 실행합니다. 혹시 아직 서버가 실행되는 중이라면, 잠시 ctrl-c를 눌러 종료시켜주세요.</p>
+저장소의 주소를 알았으니 이제 파일을 올려야겠죠. 다시 c9 IDE의 bash shell에서 명령어를 실행합니다. 혹시 아직 서버가 실행되는 중이라면, 잠시 ctrl-c를 눌러 종료시켜주세요.
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.58.00.png" alt="bash loaction" />
+![bash loaction](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.58.00.png)
 먼저 명령어를 치는 옆 현재 주소를 확인해야합니다.
-지금은 <code>c9아이디:~/workspace $</code>로 시작하는데요,
-여기서 <code>ls</code>명령어를 통해 생성해둔 파일들이 보인다면 git 명령어를 입력할 준비가 되었습니다.
-역시 처음 c9 workspace를 생성할 때 git이 설치된 상태이기 때문에, 별도의 설정을 하지 않아도 됩니다.</p>
+지금은 `c9아이디:~/workspace $`로 시작하는데요,
+여기서 `ls`명령어를 통해 생성해둔 파일들이 보인다면 git 명령어를 입력할 준비가 되었습니다.
+역시 처음 c9 workspace를 생성할 때 git이 설치된 상태이기 때문에, 별도의 설정을 하지 않아도 됩니다.
 
-<p>만일 다른 폴더에 있다면, <code>cd [주소]</code>/<code>cd ..</code>을 통해 해당 주소를 찾아주시면 됩니다.</p>
+만일 다른 폴더에 있다면, `cd [주소]`/`cd ..`을 통해 해당 주소를 찾아주시면 됩니다.
 
-<p>git 저장소를 생성합니다</p>
+git 저장소를 생성합니다
+>git init
 
-<blockquote><p>git init</p></blockquote>
+.git 폴더가 정상적으로 생성된것이 확인되면, 전체 파일을 커밋 대상으로 올립니다
+>git add .
 
-<p>.git 폴더가 정상적으로 생성된것이 확인되면, 전체 파일을 커밋 대상으로 올립니다</p>
+이후 커밋이름을 설정해줍니다.
+>git commit -m 'init commit'
 
-<blockquote><p>git add .</p></blockquote>
+이제 커밋을 저장소에 푸시 해줘야하는데요,
+>git remote add origin [위에서 저장한 저장소 주소]
 
-<p>이후 커밋이름을 설정해줍니다.</p>
+>예시) git remote add origin https://github.com/daeyeobi/daeyeobi.github.io.git
 
-<blockquote><p>git commit -m 'init commit'</p></blockquote>
+리모트 설정 후
+>git push
 
-<p>이제 커밋을 저장소에 푸시 해줘야하는데요,</p>
 
-<blockquote><p>git remote add origin [위에서 저장한 저장소 주소]</p>
-
-<p>예시) git remote add origin https://github.com/daeyeobi/daeyeobi.github.io.git</p></blockquote>
-
-<p>리모트 설정 후</p>
-
-<blockquote><p>git push</p></blockquote>
-
-<p>푸시를 하면 GitHub 아이디와 비밀번호를 요구합니다.
+푸시를 하면 GitHub 아이디와 비밀번호를 요구합니다.
 인증이 완료되면 다음과 같은 화면을 볼 수 있습니다.
-<img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.07.02.png" alt="git push" />
-그리고 다시 저장소페이지 https://github.com/GitHub아이디/GitHub아이디.github.io 를 확인해보시면</p>
+![git push](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.07.02.png)
+그리고 다시 저장소페이지 https://github.com/GitHub아이디/GitHub아이디.github.io 를 확인해보시면
 
-<p>푸시한 파일이 올라가있는것을 확인하실 수 있습니다!
-<img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.08.27.png" alt="git push" /></p>
+푸시한 파일이 올라가있는것을 확인하실 수 있습니다!
+![git push](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.08.27.png)
 
-<p>그리고 https://daeyeobi.github.io 역시 접근이 가능합니다.</p>
+그리고 https://daeyeobi.github.io 역시 접근이 가능합니다. 
 
-<pre><code>GitHub Pages 내부에서 파일 생성하는 시간이 조금 걸릴 수 있습니다. 마찬가지로 새로운 커밋을 한 뒤에 반영되는 시간도 조금 걸립니다.
-</code></pre>
+```
+GitHub Pages 내부에서 파일 생성하는 시간이 조금 걸릴 수 있습니다. 마찬가지로 새로운 커밋을 한 뒤에 반영되는 시간도 조금 걸립니다.
+```
 
-<p><img src="https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.11.16.png" alt="git push" /></p>
+![git push](https://ongoz.github.io/assets/article_images/2016-10-16-c9.io%EA%B3%BC-GitHub-Pages%EB%A1%9C-%EB%82%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%A5%EB%A7%8C%ED%95%98%EA%B8%B0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202016-10-16%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2010.11.16.png)
 
-<p>첫 커밋 이후, 블로그에 수정사항이 있거나 포스팅을 추가할 경우엔 위에서 했던 커밋 방법을 동일하게 실행하면 됩니다.</p>
+첫 커밋 이후, 블로그에 수정사항이 있거나 포스팅을 추가할 경우엔 위에서 했던 커밋 방법을 동일하게 실행하면 됩니다.
 
-<blockquote><p>여기까지가 c9.io과 GitHub Pages를 이용한 블로그 세팅 과정입니다.
+
+>여기까지가 c9.io과 GitHub Pages를 이용한 블로그 세팅 과정입니다.
 제가 이 블로그를 세팅하며 진행했던 내용을 토대로 다시 세팅하며 작성해보았는데요,
-포스팅 가이드는 조금 더 익숙해진 뒤에 업로드 하도록 하겠습니다!</p></blockquote>
-</body>
-</html>
+포스팅 가이드는 조금 더 익숙해진 뒤에 업로드 하도록 하겠습니다!
