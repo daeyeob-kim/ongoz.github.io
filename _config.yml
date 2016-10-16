@@ -1,0 +1,47 @@
+# Build settings
+gems:
+  - jemoji
+  - jekyll-paginate
+  
+port: 8080
+
+# Site settings
+title: "Hello World!"
+description: > # this means to ignore newlines until "email:"
+   김대엽의 블로그
+
+email: daeyeobi@gmail.com
+#blog logo
+logo: "/assets/images/author.png" # 좌측 상단과 원형 모두 포함됨
+# blog cover
+cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
+
+name: '김대엽'
+author: '김대엽(ongoz)'
+author_image: "/assets/images/author.jpg"
+
+paginate:	5
+
+url: "http://ongoz.github.io" # the base hostname & protocol for your site
+baseurl: ""
+
+#fill in disqus shortname to use disqus
+disqus: ongoz
+
+# social icons and sharing options
+
+social:
+  - icon:	github
+    url:	https://github.com/ongoz
+    desc:	Fork me on github
+    share_url:
+    share_title:
+    share_link:
+
+
+  - icon:	linkedin
+    url:	https://kr.linkedin.com/in/daeyeob-kim-8045a4b7
+    desc:	Connect with me linkedin
+    share_url:
+    share_title:
+    share_link:
